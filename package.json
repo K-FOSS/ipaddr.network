@@ -1,0 +1,45 @@
+{
+  "name": "ts-nextssr",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "sideEffects": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "node entrypoint.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.kristianjones.xyz/kfj-boilerplates/ts-nextssr.git"
+  },
+  "author": "Kristian Jones <me@kristianjones.xyz>",
+  "license": "ISC",
+  "dependencies": {
+    "@hg8496/netmask": "^2.0.3",
+    "@rmwc/button": "^5.5.1",
+    "@rmwc/data-table": "^4.0.6",
+    "@rmwc/drawer": "^5.5.1",
+    "@rmwc/elevation": "^5.5.1",
+    "@rmwc/grid": "^5.5.1",
+    "@rmwc/list": "^5.5.1",
+    "@rmwc/textfield": "^5.5.1",
+    "@rmwc/toolbar": "^5.5.1",
+    "@rmwc/typography": "^5.5.1",
+    "next": "^8.1.1-canary.30",
+    "next-offline": "^4.0.0",
+    "public-ip": "^3.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "use-debounce": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "@zeit/next-css": "^0.2.1-canary.4",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0"
+  }
+}
