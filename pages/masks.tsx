@@ -1,7 +1,14 @@
-import { NextPage } from "next";
+import { NextPage } from 'next';
 
-import { DataTable, DataTableContent, DataTableBody, DataTableHead, DataTableRow, DataTableCell, DataTableHeadCell } from '@rmwc/data-table'
-
+import {
+  DataTable,
+  DataTableContent,
+  DataTableBody,
+  DataTableHead,
+  DataTableRow,
+  DataTableCell,
+  DataTableHeadCell
+} from '@rmwc/data-table';
 
 export const masks: { [index: number]: string } = {
   32: '1',
@@ -43,40 +50,36 @@ import '@rmwc/data-table/data-table.css';
 const MasksPage: NextPage<{}> = () => {
   return (
     <div>
-    <DataTable>
-      <DataTableContent>
-        <DataTableHead>
-          <DataTableRow>
-            <DataTableHeadCell>Item</DataTableHeadCell>
-            <DataTableHeadCell
-              alignEnd
-            >
-              Quantity (Click Me)
-            </DataTableHeadCell>
-            <DataTableHeadCell alignEnd>Unit price</DataTableHeadCell>
-          </DataTableRow>
-        </DataTableHead>
-        <DataTableBody>
-          <DataTableRow>
-            <DataTableCell>Cookies</DataTableCell>
-            <DataTableCell alignEnd>25</DataTableCell>
-            <DataTableCell alignEnd>$2.90</DataTableCell>
-          </DataTableRow>
-          <DataTableRow>
-            <DataTableCell>Pizza</DataTableCell>
-            <DataTableCell alignEnd>50</DataTableCell>
-            <DataTableCell alignEnd>$1.25</DataTableCell>
-          </DataTableRow>
-          <DataTableRow>
-            <DataTableCell>Icecream</DataTableCell>
-            <DataTableCell alignEnd>10</DataTableCell>
-            <DataTableCell alignEnd>$2.35</DataTableCell>
-          </DataTableRow>
-        </DataTableBody>
-      </DataTableContent>
-    </DataTable>
+      <DataTable>
+        <DataTableContent>
+          <DataTableHead>
+            <DataTableRow>
+              <DataTableHeadCell>Item</DataTableHeadCell>
+              <DataTableHeadCell alignEnd>Quantity (Click Me)</DataTableHeadCell>
+              <DataTableHeadCell alignEnd>Unit price</DataTableHeadCell>
+            </DataTableRow>
+          </DataTableHead>
+          <DataTableBody>
+            <DataTableRow>
+              <DataTableCell>Cookies</DataTableCell>
+              <DataTableCell alignEnd>25</DataTableCell>
+              <DataTableCell alignEnd>$2.90</DataTableCell>
+            </DataTableRow>
+            <DataTableRow>
+              <DataTableCell>Pizza</DataTableCell>
+              <DataTableCell alignEnd>50</DataTableCell>
+              <DataTableCell alignEnd>$1.25</DataTableCell>
+            </DataTableRow>
+            <DataTableRow>
+              <DataTableCell>Icecream</DataTableCell>
+              <DataTableCell alignEnd>10</DataTableCell>
+              <DataTableCell alignEnd>$2.35</DataTableCell>
+            </DataTableRow>
+          </DataTableBody>
+        </DataTableContent>
+      </DataTable>
     </div>
-  )
-}
+  );
+};
 
-export default MasksPage
+export default MasksPage;
