@@ -11,3 +11,44 @@ build-api:
   script:
     - docker build -t "$CI_REGISTRY_IMAGE:latest" . -f Dockerfile
     - docker push "$CI_REGISTRY_IMAGE:latest"
+
+deploy:staging:
+  stage: deploy
+  image: gitlab/dind:latest
+  only:
+    - "master"
+  environment:
+    name: staging
+    url: https://ipaddr.staging.kristianjones.dev
+  services:
+    - docker:dind
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$STAGING_SERVER_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H $STAGING_SERVER_IP >> ~/.ssh/known_hosts
+  script:
+    - ssh root@$STAGING_SERVER_IP "cd /root/Staging; docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}; docker-compose stop ${STAGING_SERVER_CONTAINER}; docker-compose rm --force ${STAGING_SERVER_CONTAINER}; docker-compose pull ${STAGING_SERVER_CONTAINER}; docker-compose up -d ${STAGING_SERVER_CONTAINER}"
+
+deploy:production:
+  stage: deploy
+  image: gitlab/dind:latest
+  only:
+    - "master"
+  when: manual
+  environment:
+    name: production
+    url: https://ipaddr.network
+  services:
+    - docker:dind
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$PROD_SERVER_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H $PROD_SERVER_IP >> ~/.ssh/known_hosts
+  script:
+    - ssh root@$PROD_SERVER_IP "cd /root/KristianJones; docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}; docker-compose stop ${PROD_SERVER_CONTAINER}; docker-compose rm --force ${PROD_SERVER_CONTAINER}; docker-compose pull ${PROD_SERVER_CONTAINER}; docker-compose up -d ${PROD_SERVER_CONTAINER}"
