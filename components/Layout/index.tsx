@@ -47,7 +47,7 @@ const MainStyle: CSSProperties = {
   justifyContent: 'center',
   alignItems: 'center',
   willChange: 'margin-left',
-  minHeight: '95%'
+  minHeight: '93.396%'
 };
 
 const MainStyle2: CSSProperties = {
