@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ErrorPage: NextPage<Props> = ({ statusCode }) => (
-  <Layout>
+  <Layout type='FORM'>
     <Typography use='headline4'>ERROR</Typography>
     <br />
     <Typography use='body1'>

@@ -2,7 +2,7 @@
 
 const SubnetAddresses: React.SFC<{}> = () => {
   //const [ip] = useState<string>()
-  return (<div></div>)
-}
+  return <div />;
+};
 
-export default SubnetAddresses
+export default SubnetAddresses;

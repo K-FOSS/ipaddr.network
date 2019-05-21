@@ -6,7 +6,7 @@ import { TextField } from '@rmwc/textfield';
 
 import { Netmask } from '@hg8496/netmask';
 
-import { masks } from '../../pages/masks';
+import { masks } from './masks';
 
 // CSS
 import '../../style.css';

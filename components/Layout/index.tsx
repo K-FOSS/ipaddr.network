@@ -8,6 +8,7 @@ import { DrawerAppContent } from '@rmwc/drawer';
 import { NavBar } from './NavBar';
 
 // CSS
+import '@material/theme/dist/mdc.theme.min.css';
 import '@material/toolbar/dist/mdc.toolbar.min.css';
 import '@material/drawer/dist/mdc.drawer.min.css';
 import '@material/list/dist/mdc.list.min.css';
@@ -26,11 +27,32 @@ const divStyleing: CSSProperties = {
   padding: '1em'
 } as CSSProperties;
 
+/* const InfoStyleing: CSSProperties = {
+  marginTop: '2vh',
+  marginBottom: '7vh',
+  flex: '1 1 auto',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  maxWidth: '80vw',
+  borderRadius: '1em',
+  padding: '1em'
+} as CSSProperties; */
+
 const MainStyle: CSSProperties = {
   flex: '1 1 auto',
-  height: '95%',
   maxWidth: '100%',
   backgroundColor: '#eee',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  willChange: 'margin-left',
+  minHeight: '95%'
+};
+
+const MainStyle2: CSSProperties = {
+  flex: '1 1 auto',
+  maxWidth: '100%',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -40,10 +62,31 @@ const MainStyle: CSSProperties = {
 const AppStyle: CSSProperties = {
   position: 'fixed',
   height: '100%',
-  minWidth: '100%'
+  minWidth: '100%',
+  overflow: 'auto'
 };
 
-export const Layout: FunctionComponent = ({ children }) => {
+const AppStyle2: CSSProperties = {
+  position: 'fixed',
+  minHeight: '100%',
+  minWidth: '100%',
+  overflow: 'auto'
+};
+
+const rootStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+  padding: '1.5rem',
+  margin: '0 auto'
+};
+
+interface LayoutProps {
+  type: 'FORM' | 'INFO';
+  currentMode?: string;
+}
+
+export const Layout: FunctionComponent<LayoutProps> = ({ children, type, currentMode }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   let [isMobileState, setIsMobileState] = useState(true);
   useEffect(() => {
@@ -82,12 +125,19 @@ export const Layout: FunctionComponent = ({ children }) => {
         <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
         <title>IP Addr Network</title>
       </Head>
-      <div style={AppStyle}>
-        <NavBar open={menuOpen} dismissible={!isMobileState} modal={isMobileState} />
-        <DrawerAppContent style={MainStyle}>
-          <Elevation style={divStyleing} z='8'>
-            {children}
-          </Elevation>
+      <div style={type == 'FORM' ? AppStyle : AppStyle2}>
+        <NavBar currentMode={currentMode} open={menuOpen} dismissible={!isMobileState} modal={isMobileState} />
+        <DrawerAppContent style={type == 'FORM' ? MainStyle : MainStyle2}>
+          {type == 'FORM' && (
+            <Elevation style={divStyleing} z='8'>
+              {children}
+            </Elevation>
+          )}
+          {type == 'INFO' && (
+            <div className='hello-world' style={rootStyle}>
+              {children}
+            </div>
+          )}
         </DrawerAppContent>
       </div>
     </>
