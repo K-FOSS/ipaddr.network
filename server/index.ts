@@ -24,7 +24,8 @@ const Handler = (req: IncomingMessage, res: ServerResponse) => {
 
   // If /service-worker.js load from .next static files
   if (pathname === '/service-worker.js') {
-    const filePath = join(__dirname, '.next', pathname);
+    const filePath = join('.next', pathname);
+    console.log(filePath)
     app.serveStatic(req, res, filePath);
   }
   // Else if legacy /ipcalc then redirect to root
