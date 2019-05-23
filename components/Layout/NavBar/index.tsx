@@ -13,7 +13,7 @@ interface MenuItemProps {
 }
 
 const MenuItem: React.SFC<MenuItemProps> = ({ url, label, as, mode, currentMode }) => (
-  <Link href={url} as={as} shallow={false}>
+  <Link href={url} as={as}>
     <ListItem
       activated={
         typeof window === 'undefined'
