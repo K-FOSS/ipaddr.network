@@ -1,5 +1,3 @@
-import {} from 'next/link';
-
 type SingleMenuItemT = {
   label: string;
   url: string;
@@ -15,9 +13,9 @@ type MenuWithSubSectionsT = {
 type MenuItemT = SingleMenuItemT | MenuWithSubSectionsT;
 
 export const MenuItemList: MenuItemT[] = [
-  { label: 'My IP', url: '/', as: '' },
+  { label: 'My IP', url: '/', as: '/' },
   {
     label: 'Tools',
-    children: [{ label: 'Subnet Information', url: '/tools?mode=SUBNETINFO', as: '/tools', mode: 'SUBNETINFO' }]
+    children: [{ label: 'Subnet Information', url: '/tools?MODE=SUBNETINFO', as: '/tools', mode: 'SUBNETINFO' }]
   }
 ];
