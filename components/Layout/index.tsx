@@ -3,6 +3,7 @@
 // May 24, 2019
 import { CSSProperties, FunctionComponent, useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link'
 
 import { Toolbar, ToolbarTitle, ToolbarRow, ToolbarMenuIcon } from '@rmwc/toolbar';
 import { Elevation } from '@rmwc/elevation';
@@ -117,7 +118,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children, type, current
       <Toolbar>
         <ToolbarRow>
           <ToolbarMenuIcon icon='menu' onClick={() => setMenuOpen(!menuOpen)} />
-          <ToolbarTitle>IP Addr</ToolbarTitle>
+          <Link href='/' prefetch><ToolbarTitle>IP Addr</ToolbarTitle></Link>
         </ToolbarRow>
       </Toolbar>
       <Head>
