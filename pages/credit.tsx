@@ -12,15 +12,64 @@ import { Layout } from '../components/Layout';
 import '@material/typography/dist/mdc.typography.min.css';
 import '@material/button/dist/mdc.button.min.css';
 
+type Credit = {
+  authorName: string;
+  authorLink: string;
+  thanksText: string;
+  library?: string;
+  libraryLink?: string;
+};
 
-const ErrorPage: NextPage = () => (
+const credits: Credit[] = [
+  {
+    authorName: 'Next.JS',
+    authorLink: 'https://github.com/zeit/next.js/',
+    thanksText: 'for the amazing SSR Framework'
+  },
+  {
+    authorName: 'Freepik',
+    authorLink:
+      'https://www.freepik.com/?__hstc=57440181.4bf38f76266d29ad90267761774ab1eb.1558299770962.1558299770962.1558708989234.2&__hssc=57440181.4.1558708989234&__hsfp=2849006003',
+    thanksText: 'for the amazing icon from',
+    library: 'flaticon',
+    libraryLink: 'https://www.flaticon.com'
+  },
+  {
+    authorName: 'jamesmfriedman',
+    authorLink: 'https://github.com/jamesmfriedman',
+    thanksText: 'for the amazing',
+    library: 'RMWC',
+    libraryLink: 'https://github.com/jamesmfriedman/rmwc'
+  }
+];
+
+const CreditsPage: NextPage = () => (
   <Layout type='FORM'>
-    <Typography use='headline4'>Credit</Typography>
+    <Typography use='headline4'>Credits</Typography>
     <br />
-    <Typography use="body1"><a href="https://github.com/zeit/next.js/">Next.JS</a> for the amazing SSR Framework</Typography>
-    <Typography use="body1"><a href="https://www.freepik.com/?__hstc=57440181.4bf38f76266d29ad90267761774ab1eb.1558299770962.1558299770962.1558708989234.2&__hssc=57440181.4.1558708989234&__hsfp=2849006003">Freepik</a> for the amazing icon from <a href="https://www.flaticon.com" >flaticon</a></Typography>
-    <Typography use="body1"><a href="https://github.com/jamesmfriedman">jamesmfriedman</a> for the amazing <a href="https://github.com/jamesmfriedman/rmwc">RMWC</a></Typography>
+    {credits.map(props => (
+      <CreditsItem key={props.authorName} {...props} />
+    ))}
   </Layout>
 );
 
-export default ErrorPage;
+type CreditItemProps = {
+  authorName: string;
+  authorLink: string;
+  thanksText: string;
+  library?: string;
+  libraryLink?: string;
+};
+
+const CreditsItem: React.FunctionComponent<CreditItemProps> = ({ authorLink, authorName, thanksText, ...props }) => (
+  <Typography use='body1'>
+    <a href={authorLink}>{authorName}</a>&nbsp;{thanksText}
+    {props.library && props.libraryLink && (
+      <>
+        &nbsp;<a href={props.libraryLink}>{props.library}</a>
+      </>
+    )}
+  </Typography>
+);
+
+export default CreditsPage;
