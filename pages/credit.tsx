@@ -47,6 +47,13 @@ const credits: Credit[] = [
     thanksText: 'for the amazing',
     library: 'public-ip',
     libraryLink: 'https://github.com/sindresorhus/public-ip'
+  },
+  {
+    authorName: 'hg8496',
+    authorLink: 'https://github.com/hg8496',
+    thanksText: 'for the amazing',
+    library: 'netmask',
+    libraryLink: 'https://www.npmjs.com/package/@hg8496/netmask'
   }
 ];
 
