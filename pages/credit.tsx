@@ -15,7 +15,7 @@ import '@material/button/dist/mdc.button.min.css';
 type Credit = {
   authorName: string;
   authorLink: string;
-  thanksText: string;
+  thanksText?: string;
   library?: string;
   libraryLink?: string;
 };
@@ -37,21 +37,18 @@ const credits: Credit[] = [
   {
     authorName: 'jamesmfriedman',
     authorLink: 'https://github.com/jamesmfriedman',
-    thanksText: 'for the amazing',
     library: 'RMWC',
     libraryLink: 'https://github.com/jamesmfriedman/rmwc'
   },
   {
     authorName: 'sindresorhus',
     authorLink: 'https://github.com/sindresorhus',
-    thanksText: 'for the amazing',
     library: 'public-ip',
     libraryLink: 'https://github.com/sindresorhus/public-ip'
   },
   {
     authorName: 'hg8496',
     authorLink: 'https://github.com/hg8496',
-    thanksText: 'for the amazing',
     library: 'netmask',
     libraryLink: 'https://www.npmjs.com/package/@hg8496/netmask'
   }
@@ -67,15 +64,12 @@ const CreditsPage: NextPage = () => (
   </Layout>
 );
 
-type CreditItemProps = {
-  authorName: string;
-  authorLink: string;
-  thanksText: string;
-  library?: string;
-  libraryLink?: string;
-};
-
-const CreditsItem: React.FunctionComponent<CreditItemProps> = ({ authorLink, authorName, thanksText, ...props }) => (
+const CreditsItem: React.FunctionComponent<Credit> = ({
+  authorLink,
+  authorName,
+  thanksText = 'for the amazing',
+  ...props
+}) => (
   <Typography use='body1'>
     <a href={authorLink}>{authorName}</a>&nbsp;{thanksText}
     {props.library && props.libraryLink && (
