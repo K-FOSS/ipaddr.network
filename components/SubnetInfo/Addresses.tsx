@@ -1,6 +1,6 @@
 //import { useState } from 'react'
 
-const SubnetAddresses: React.SFC<{}> = () => {
+const SubnetAddresses: React.FunctionComponent<{}> = () => {
   //const [ip] = useState<string>()
   return <div />;
 };

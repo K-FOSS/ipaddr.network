@@ -1,3 +1,6 @@
+// components/Layout/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import { CSSProperties, FunctionComponent, useState, useEffect } from 'react';
 import Head from 'next/head';
 

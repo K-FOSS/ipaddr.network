@@ -1,3 +1,6 @@
+// components/SubnetInfo/masks.ts
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 export const masks: { [index: number]: string } = {
   32: '1',
   31: '0',

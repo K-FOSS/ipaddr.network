@@ -1,3 +1,6 @@
+// components/Layout/NavBar/items.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 type SingleMenuItemT = {
   label: string;
   url: string;

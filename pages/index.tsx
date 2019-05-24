@@ -1,3 +1,6 @@
+// pages/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import { CSSProperties } from 'react';
 import { NextPage } from 'next';
 import publicIP from 'public-ip';
@@ -5,6 +8,7 @@ import publicIP from 'public-ip';
 import { Typography } from '@rmwc/typography';
 
 import { Layout } from '../components/Layout';
+import { LabelItem } from '../components/LabelItem';
 
 // CSS
 import '../style.css';
@@ -36,15 +40,3 @@ IndexPage.getInitialProps = async ctx => ({
 });
 
 export default IndexPage;
-
-interface ItemProps {
-  label: string;
-  value: string;
-}
-
-const LabelItem: React.SFC<ItemProps> = ({ label, value }) => (
-  <Typography use='body1'>
-    <label style={{ fontWeight: 'bold' }}>{label}: </label>
-    {value}
-  </Typography>
-);

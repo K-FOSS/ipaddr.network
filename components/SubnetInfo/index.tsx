@@ -1,4 +1,7 @@
-import { useState, ChangeEvent } from 'react';
+// components/SubnetInfo/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
+import { useState, ChangeEvent, FunctionComponent } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { Typography } from '@rmwc/typography';
@@ -7,6 +10,7 @@ import { TextField } from '@rmwc/textfield';
 import { Netmask } from '@hg8496/netmask';
 
 import { masks } from './masks';
+import { LabelItem } from '../LabelItem';
 
 // CSS
 import '../../style.css';
@@ -18,7 +22,7 @@ import '@material/notched-outline/dist/mdc.notched-outline.min.css';
 import '@material/line-ripple/dist/mdc.line-ripple.min.css';
 import '@material/button/dist/mdc.button.min.css';
 
-export default () => {
+const SubNetInfo: FunctionComponent<{}> = () => {
   const [subnet, setSubNet] = useState<Netmask>();
 
   const [debouncedCallback] = useDebouncedCallback(value => calculateNetwork(value), 500);
@@ -39,19 +43,19 @@ export default () => {
         <>
           <br />
 
-          <NetworkItem label='Network' value={subnet.toString()} />
-          <NetworkItem label='Subnet Mask' value={subnet.netmask} />
-          <NetworkItem label='Wildcard' value={subnet.hostmask} />
+          <LabelItem label='Network' value={subnet.toString()} />
+          <LabelItem label='Subnet Mask' value={subnet.netmask} />
+          <LabelItem label='Wildcard' value={subnet.hostmask} />
           <br />
 
-          <NetworkItem label='Address' value={subnet.network} />
+          <LabelItem label='Address' value={subnet.network} />
 
-          <NetworkItem label='Broadcast' value={subnet.broadcastIP} />
+          <LabelItem label='Broadcast' value={subnet.broadcastIP} />
           <br />
 
-          <NetworkItem label='Usable Hosts' value={masks[subnet.netmaskBits]} />
-          <NetworkItem label='Min' value={subnet.firstHostIP} />
-          <NetworkItem label='Max' value={subnet.lastHostIP} />
+          <LabelItem label='Usable Hosts' value={masks[subnet.netmaskBits]} />
+          <LabelItem label='Min' value={subnet.firstHostIP} />
+          <LabelItem label='Max' value={subnet.lastHostIP} />
           <br />
         </>
       )}
@@ -59,14 +63,4 @@ export default () => {
   );
 };
 
-interface ItemProps {
-  label: string;
-  value: string;
-}
-
-export const NetworkItem: React.SFC<ItemProps> = ({ label, value }) => (
-  <Typography use='body1'>
-    <label style={{ fontWeight: 'bold' }}>{label}: </label>
-    {value}
-  </Typography>
-);
+export default SubNetInfo;

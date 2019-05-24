@@ -1,5 +1,7 @@
+// components/HelloWorld/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import { Typography } from '@rmwc/typography';
-
 
 // CSS
 import '../../style.css';
@@ -9,4 +11,4 @@ export default () => (
   <>
     <Typography use='headline3'>Hello World</Typography>
   </>
-)
+);

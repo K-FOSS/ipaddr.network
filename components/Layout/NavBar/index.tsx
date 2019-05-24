@@ -1,3 +1,6 @@
+// components/Layout/NavBar/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import { List, ListItem, CollapsibleList, SimpleListItem } from '@rmwc/list';
 import { DrawerContent, Drawer, DrawerProps } from '@rmwc/drawer';
 import Link from 'next/link';
@@ -12,7 +15,7 @@ interface MenuItemProps {
   currentMode?: string;
 }
 
-const MenuItem: React.SFC<MenuItemProps> = ({ url, label, as, mode, currentMode }) => (
+const MenuItem: React.FunctionComponent<MenuItemProps> = ({ url, label, as, mode, currentMode }) => (
   <Link href={url} as={as} prefetch passHref>
     <ListItem
       activated={

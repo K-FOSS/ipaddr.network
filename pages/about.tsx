@@ -1,3 +1,6 @@
+// pages/about.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import { CSSProperties } from 'react';
 import { NextPage } from 'next';
 import { Typography } from '@rmwc/typography';

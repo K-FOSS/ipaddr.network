@@ -1,6 +1,9 @@
-import { ChangeEvent, useState } from 'react';
-import { NextPage } from 'next';
+// components/Sandbox/index.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
+import { ChangeEvent, useState, FunctionComponent } from 'react';
 
+// Styles
 import { Typography } from '@rmwc/typography';
 import { Select } from '@rmwc/select';
 import { Button } from '@rmwc/button';
@@ -15,7 +18,7 @@ import '@material/menu/dist/mdc.menu.css';
 import '@material/menu-surface/dist/mdc.menu-surface.css';
 import '@material/button/dist/mdc.button.min.css';
 
-export const Sandbox: NextPage<{}> = () => {
+export const Sandbox: FunctionComponent<{}> = () => {
   const [err, setErr] = useState<string>();
   const [data] = useState<string>();
   const [func, setFunc] = useState<string>('');

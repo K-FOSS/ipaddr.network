@@ -1,3 +1,6 @@
+// pages/_error.tsx
+// Kristian F Jones <me@kristianjones.xyz>
+// May 24, 2019
 import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
