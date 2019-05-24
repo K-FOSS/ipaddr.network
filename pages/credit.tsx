@@ -40,6 +40,13 @@ const credits: Credit[] = [
     thanksText: 'for the amazing',
     library: 'RMWC',
     libraryLink: 'https://github.com/jamesmfriedman/rmwc'
+  },
+  {
+    authorName: 'sindresorhus',
+    authorLink: 'https://github.com/sindresorhus',
+    thanksText: 'for the amazing',
+    library: 'public-ip',
+    libraryLink: 'https://github.com/sindresorhus/public-ip'
   }
 ];
 
