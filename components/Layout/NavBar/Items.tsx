@@ -20,5 +20,6 @@ export const MenuItemList: MenuItemT[] = [
   {
     label: 'Tools',
     children: [{ label: 'Subnet Information', url: '/tools?MODE=SUBNETINFO', as: '/tools', mode: 'SUBNETINFO' }]
-  }
+  },
+  { label: 'Credits', url: '/credit', as: '/credit' },
 ];

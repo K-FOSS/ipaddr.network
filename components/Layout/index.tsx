@@ -25,7 +25,7 @@ const divStyleing: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'column',
-  maxWidth: '320px',
+  maxWidth: '325px',
   borderRadius: '1em',
   padding: '1em'
 } as CSSProperties;

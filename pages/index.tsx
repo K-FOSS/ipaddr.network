@@ -35,6 +35,7 @@ const IndexPage: NextPage<Props> = ({ ip }) => (
 );
 
 IndexPage.getInitialProps = async ctx => ({
+  // if Server Side request then return the x-forwarded-for header, else get public IP and return that
   ip:
     ctx.req && ctx.req.headers['x-forwarded-for'] ? (ctx.req.headers['x-forwarded-for'] as string) : await publicIP.v4()
 });
