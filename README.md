@@ -1,6 +1,8 @@
 # ipaddr.network
 __May 24, 2019__
 
+## TODO: Rewrite from Scratch for Firebase with @K-FOSS/App-Template
+
 ## Credits
 [Next.JS](https://github.com/zeit/next.js/) for the amazing SSR Framework
 
