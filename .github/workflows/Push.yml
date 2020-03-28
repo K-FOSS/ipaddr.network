@@ -19,7 +19,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/k-foss/ipaddr.network/ipaddr.network-ui
-          username: ${{ secrets.GITHUB_USERNAME }}
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_PASSWORD }}
           registry: docker.pkg.github.com
           cache: true
