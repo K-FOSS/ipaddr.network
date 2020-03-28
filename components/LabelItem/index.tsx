@@ -9,8 +9,11 @@ interface ItemProps {
   value: string;
 }
 
-export const LabelItem: React.FunctionComponent<ItemProps> = ({ label, value }) => (
-  <Typography use='body1'>
+export const LabelItem: React.FunctionComponent<ItemProps> = ({
+  label,
+  value,
+}) => (
+  <Typography use="body1">
     <label style={{ fontWeight: 'bold' }}>{label}: </label>
     {value}
   </Typography>

@@ -15,13 +15,13 @@ const Modes: { [T in ToolModes]: JSX.Element } = { SUBNETINFO: <SubnetInfo /> };
 const ToolsPage: NextPage<{ initialmode: ToolModes }> = ({ initialmode }) => {
   const [mode] = useState<ToolModes>(initialmode);
   return (
-    <Layout type='FORM' currentMode={mode as string}>
+    <Layout type="FORM" currentMode={mode as string}>
       {Modes[mode]}
     </Layout>
   );
 };
 
-ToolsPage.getInitialProps = async ctx => {
+ToolsPage.getInitialProps = async (ctx) => {
   let mode: ToolModes;
   if (ctx.query['mode']) mode = ctx.query['mode'] as ToolModes;
   else mode = 'SUBNETINFO';

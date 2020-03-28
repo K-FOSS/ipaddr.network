@@ -1,0 +1,25 @@
+name: Build & Push Docker Image
+
+on: [push, pull_request]
+
+jobs:
+  Prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: k-foss/npm-run-action@master
+        with:
+          scriptName: 'prettier'
+
+  BuildImage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: docker.pkg.github.com/k-foss/ipaddr.network/ipaddr.network-ui
+          username: ${{ secrets.GITHUB_USERNAME }}
+          password: ${{ secrets.GITHUB_PASSWORD }}
+          registry: docker.pkg.github.com
+          cache: true

@@ -5,7 +5,7 @@ import conf from './config';
 const next = require('next') as typeof import('next-server').default;
 
 const app = next({
-  conf: conf
+  conf: conf,
 });
 const handle = app.getRequestHandler();
 

@@ -18,7 +18,7 @@ const TextStyle: CSSProperties = {
   fontSize: '2.125rem',
   fontWeight: 400,
   lineHeight: '2.5rem',
-  marginBottom: '0.875rem'
+  marginBottom: '0.875rem',
 };
 
 interface Props {
@@ -26,18 +26,20 @@ interface Props {
 }
 
 const IndexPage: NextPage<Props> = ({ ip }) => (
-  <Layout type='FORM'>
-    <Typography style={TextStyle} use='headline4'>
+  <Layout type="FORM">
+    <Typography style={TextStyle} use="headline4">
       IP Address
     </Typography>
-    <LabelItem label='Public IP' value={ip} />
+    <LabelItem label="Public IP" value={ip} />
   </Layout>
 );
 
-IndexPage.getInitialProps = async ctx => ({
+IndexPage.getInitialProps = async (ctx) => ({
   // if Server Side request then return the x-forwarded-for header, else get public IP and return that
   ip:
-    ctx.req && ctx.req.headers['x-forwarded-for'] ? (ctx.req.headers['x-forwarded-for'] as string) : await publicIP.v4()
+    ctx.req && ctx.req.headers['x-forwarded-for']
+      ? (ctx.req.headers['x-forwarded-for'] as string)
+      : await publicIP.v4(),
 });
 
 export default IndexPage;

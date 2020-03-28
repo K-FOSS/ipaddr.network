@@ -3,9 +3,14 @@
 // May 24, 2019
 import { CSSProperties, FunctionComponent, useState, useEffect } from 'react';
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
 
-import { Toolbar, ToolbarTitle, ToolbarRow, ToolbarMenuIcon } from '@rmwc/toolbar';
+import {
+  Toolbar,
+  ToolbarTitle,
+  ToolbarRow,
+  ToolbarMenuIcon,
+} from '@rmwc/toolbar';
 import { Elevation } from '@rmwc/elevation';
 import { DrawerAppContent } from '@rmwc/drawer';
 
@@ -28,7 +33,7 @@ const divStyleing: CSSProperties = {
   flexDirection: 'column',
   maxWidth: '325px',
   borderRadius: '1em',
-  padding: '1em'
+  padding: '1em',
 } as CSSProperties;
 
 /* const InfoStyleing: CSSProperties = {
@@ -51,7 +56,7 @@ const MainStyle: CSSProperties = {
   justifyContent: 'center',
   alignItems: 'center',
   willChange: 'margin-left',
-  minHeight: '94.396%'
+  minHeight: '94.396%',
 };
 
 const MainStyle2: CSSProperties = {
@@ -60,21 +65,21 @@ const MainStyle2: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  willChange: 'margin-left'
+  willChange: 'margin-left',
 };
 
 const AppStyle: CSSProperties = {
   position: 'fixed',
   height: '100%',
   minWidth: '100%',
-  overflow: 'auto'
+  overflow: 'auto',
 };
 
 const AppStyle2: CSSProperties = {
   position: 'fixed',
   minHeight: '100%',
   minWidth: '100%',
-  overflow: 'auto'
+  overflow: 'auto',
 };
 
 const rootStyle: CSSProperties = {
@@ -82,7 +87,7 @@ const rootStyle: CSSProperties = {
   flexDirection: 'column',
   minHeight: '100vh',
   padding: '1.5rem',
-  margin: '0 auto'
+  margin: '0 auto',
 };
 
 interface LayoutProps {
@@ -90,7 +95,11 @@ interface LayoutProps {
   currentMode?: string;
 }
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children, type, currentMode }) => {
+export const Layout: FunctionComponent<LayoutProps> = ({
+  children,
+  type,
+  currentMode,
+}) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   let [isMobileState, setIsMobileState] = useState(true);
   useEffect(() => {
@@ -117,28 +126,48 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children, type, current
     <>
       <Toolbar>
         <ToolbarRow>
-          <ToolbarMenuIcon icon='menu' onClick={() => setMenuOpen(!menuOpen)} />
-          <Link href='/' prefetch><ToolbarTitle>IP Addr</ToolbarTitle></Link>
+          <ToolbarMenuIcon icon="menu" onClick={() => setMenuOpen(!menuOpen)} />
+          <Link href="/" prefetch>
+            <ToolbarTitle>IP Addr</ToolbarTitle>
+          </Link>
         </ToolbarRow>
       </Toolbar>
       <Head>
-        <link rel='manifest' href='/static/manifest.json' />
-        <link rel='icon' type='image/png' sizes='32x32' href='/static/favicon-32x32.png' />
-        <link rel='icon' type='image/png' sizes='16x16' href='/static/favicon-16x16.png' />
-        <meta name='theme-color' content='#6200ee' />
-        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
+        <link rel="manifest" href="/static/manifest.json" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/static/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/static/favicon-16x16.png"
+        />
+        <meta name="theme-color" content="#6200ee" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
         <title>IP Addr Network</title>
       </Head>
       <div style={type == 'FORM' ? AppStyle : AppStyle2}>
-        <NavBar currentMode={currentMode} open={menuOpen} dismissible={!isMobileState} modal={isMobileState} />
+        <NavBar
+          currentMode={currentMode}
+          open={menuOpen}
+          dismissible={!isMobileState}
+          modal={isMobileState}
+        />
         <DrawerAppContent style={type == 'FORM' ? MainStyle : MainStyle2}>
           {type == 'FORM' && (
-            <Elevation style={divStyleing} z='8'>
+            <Elevation style={divStyleing} z="8">
               {children}
             </Elevation>
           )}
           {type == 'INFO' && (
-            <div className='hello-world' style={rootStyle}>
+            <div className="hello-world" style={rootStyle}>
               {children}
             </div>
           )}

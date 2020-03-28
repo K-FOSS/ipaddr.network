@@ -19,21 +19,23 @@ interface Props {
 }
 
 const ErrorPage: NextPage<Props> = ({ statusCode }) => (
-  <Layout type='FORM'>
-    <Typography use='headline4'>ERROR</Typography>
+  <Layout type="FORM">
+    <Typography use="headline4">ERROR</Typography>
     <br />
-    <Typography use='body1'>
-      {statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}
+    <Typography use="body1">
+      {statusCode
+        ? `An error ${statusCode} occurred on server`
+        : 'An error occurred on client'}
     </Typography>
     <br />
-    <Link href='/'>
+    <Link href="/">
       <Button raised>Go Home</Button>
     </Link>
   </Layout>
 );
 
 ErrorPage.getInitialProps = async ({ res, err }) => ({
-  statusCode: res ? res.statusCode : err ? err.statusCode : null
+  statusCode: res ? res.statusCode : err ? err.statusCode : null,
 });
 
 export default ErrorPage;

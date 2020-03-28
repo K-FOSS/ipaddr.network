@@ -29,11 +29,13 @@ export const Sandbox: FunctionComponent<{}> = () => {
     if (Stream) {
       let tracks = Stream.getTracks();
 
-      tracks.forEach(track => track.stop());
+      tracks.forEach((track) => track.stop());
       await setStream(undefined);
       return;
     }
-    const videoPlayer = document.getElementById('video-player') as HTMLMediaElement; // this is a <video> element
+    const videoPlayer = document.getElementById(
+      'video-player',
+    ) as HTMLMediaElement; // this is a <video> element
     if (!videoPlayer) return;
     const onSuccessWithSrcObject = (stream: MediaStream) => {
       videoPlayer.srcObject = stream;
@@ -47,8 +49,8 @@ export const Sandbox: FunctionComponent<{}> = () => {
       audio: true,
       video: {
         width: 300,
-        height: 300
-      }
+        height: 300,
+      },
     };
 
     if (!navigator.mediaDevices) {
@@ -56,7 +58,9 @@ export const Sandbox: FunctionComponent<{}> = () => {
       return;
     }
     // @ts-ignore
-    const stream: MediaStream = await navigator.mediaDevices.getDisplayMedia(Media);
+    const stream: MediaStream = await navigator.mediaDevices.getDisplayMedia(
+      Media,
+    );
     await setStream(stream);
     if ('srcObject' in videoPlayer) {
       onSuccessWithSrcObject(stream);
@@ -66,33 +70,39 @@ export const Sandbox: FunctionComponent<{}> = () => {
   };
 
   const Functions: { [key: string]: () => Promise<any> } = {
-    'Screen Test': ScreenTest
+    'Screen Test': ScreenTest,
   };
 
   return (
     <>
-      <Typography use='headline4'>Sandbox</Typography>
+      <Typography use="headline4">Sandbox</Typography>
       {err && (
-        <Typography style={{ color: 'red' }} use='body1'>
+        <Typography style={{ color: 'red' }} use="body1">
           {err}
         </Typography>
       )}
       <Select
-        options={Object.entries(Functions).map(a => a[0])}
+        options={Object.entries(Functions).map((a) => a[0])}
         value={func}
         outlined
-        onChange={(a: ChangeEvent<HTMLSelectElement>) => setFunc(a.target.value)}
+        onChange={(a: ChangeEvent<HTMLSelectElement>) =>
+          setFunc(a.target.value)
+        }
       />
       <br />
       {data && (
         <>
-          <Typography use='body1'>{data}</Typography>
+          <Typography use="body1">{data}</Typography>
           <br />
         </>
       )}
       <video
-        style={{ height: '300px', width: '300px', display: !Stream ? 'none' : 'inherit' }}
-        id='video-player'
+        style={{
+          height: '300px',
+          width: '300px',
+          display: !Stream ? 'none' : 'inherit',
+        }}
+        id="video-player"
         autoPlay={true}
       />
 

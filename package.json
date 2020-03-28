@@ -7,13 +7,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ts-node -P ./tsconfig.json -O {\\\"module\\\":\\\"commonjs\\\"} ./build.ts && tsc -p tsconfig.server.json --module commonjs",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prettier": "prettier -c \"./**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.kristianjones.xyz/kfj-boilerplates/ts-nextssr.git"
+    "url": "https://github.com/K-FOSS/ipaddr.network.git"
   },
-  "author": "Kristian Jones <me@kristianjones.xyz>",
+  "author": "Kristian Jones <me@kristianjones.dev>",
   "license": "ISC",
   "dependencies": {
     "@hg8496/netmask": "^2.0.3",
@@ -43,6 +44,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/web-bluetooth": "0.0.4",
     "@types/webappsec-credential-management": "^0.3.10",
+    "prettier": "^2.0.2",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5",
     "webpack": "^4.31.0"

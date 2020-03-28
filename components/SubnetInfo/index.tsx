@@ -25,37 +25,43 @@ import '@material/button/dist/mdc.button.min.css';
 const SubNetInfo: FunctionComponent<{}> = () => {
   const [subnet, setSubNet] = useState<Netmask>();
 
-  const [debouncedCallback] = useDebouncedCallback(value => calculateNetwork(value), 500);
+  const [debouncedCallback] = useDebouncedCallback(
+    (value) => calculateNetwork(value),
+    500,
+  );
 
-  const calculateNetwork = async (ipaddr: string) => setSubNet(new Netmask(ipaddr));
+  const calculateNetwork = async (ipaddr: string) =>
+    setSubNet(new Netmask(ipaddr));
 
   return (
     <>
-      <Typography use='headline4'>Subnet Information</Typography>
+      <Typography use="headline4">Subnet Information</Typography>
       <br />
 
       <TextField
         outlined
-        label='IP Address'
-        onChange={async (a: ChangeEvent<HTMLInputElement>) => debouncedCallback(a.target.value)}
+        label="IP Address"
+        onChange={async (a: ChangeEvent<HTMLInputElement>) =>
+          debouncedCallback(a.target.value)
+        }
       />
       {subnet && (
         <>
           <br />
 
-          <LabelItem label='Network' value={subnet.toString()} />
-          <LabelItem label='Subnet Mask' value={subnet.netmask} />
-          <LabelItem label='Wildcard' value={subnet.hostmask} />
+          <LabelItem label="Network" value={subnet.toString()} />
+          <LabelItem label="Subnet Mask" value={subnet.netmask} />
+          <LabelItem label="Wildcard" value={subnet.hostmask} />
           <br />
 
-          <LabelItem label='Address' value={subnet.network} />
+          <LabelItem label="Address" value={subnet.network} />
 
-          <LabelItem label='Broadcast' value={subnet.broadcastIP} />
+          <LabelItem label="Broadcast" value={subnet.broadcastIP} />
           <br />
 
-          <LabelItem label='Usable Hosts' value={masks[subnet.netmaskBits]} />
-          <LabelItem label='Min' value={subnet.firstHostIP} />
-          <LabelItem label='Max' value={subnet.lastHostIP} />
+          <LabelItem label="Usable Hosts" value={masks[subnet.netmaskBits]} />
+          <LabelItem label="Min" value={subnet.firstHostIP} />
+          <LabelItem label="Max" value={subnet.lastHostIP} />
           <br />
         </>
       )}

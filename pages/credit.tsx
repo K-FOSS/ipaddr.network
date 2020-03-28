@@ -24,7 +24,7 @@ const credits: Credit[] = [
   {
     authorName: 'Next.JS',
     authorLink: 'https://github.com/zeit/next.js/',
-    thanksText: 'for the amazing SSR Framework'
+    thanksText: 'for the amazing SSR Framework',
   },
   {
     authorName: 'Freepik',
@@ -32,33 +32,33 @@ const credits: Credit[] = [
       'https://www.freepik.com/?__hstc=57440181.4bf38f76266d29ad90267761774ab1eb.1558299770962.1558299770962.1558708989234.2&__hssc=57440181.4.1558708989234&__hsfp=2849006003',
     thanksText: 'for the amazing icon from',
     library: 'flaticon',
-    libraryLink: 'https://www.flaticon.com'
+    libraryLink: 'https://www.flaticon.com',
   },
   {
     authorName: 'jamesmfriedman',
     authorLink: 'https://github.com/jamesmfriedman',
     library: 'RMWC',
-    libraryLink: 'https://github.com/jamesmfriedman/rmwc'
+    libraryLink: 'https://github.com/jamesmfriedman/rmwc',
   },
   {
     authorName: 'sindresorhus',
     authorLink: 'https://github.com/sindresorhus',
     library: 'public-ip',
-    libraryLink: 'https://github.com/sindresorhus/public-ip'
+    libraryLink: 'https://github.com/sindresorhus/public-ip',
   },
   {
     authorName: 'hg8496',
     authorLink: 'https://github.com/hg8496',
     library: 'netmask',
-    libraryLink: 'https://www.npmjs.com/package/@hg8496/netmask'
-  }
+    libraryLink: 'https://www.npmjs.com/package/@hg8496/netmask',
+  },
 ];
 
 const CreditsPage: NextPage = () => (
-  <Layout type='FORM'>
-    <Typography use='headline4'>Credits</Typography>
+  <Layout type="FORM">
+    <Typography use="headline4">Credits</Typography>
     <br />
-    {credits.map(props => (
+    {credits.map((props) => (
       <CreditsItem key={props.authorName} {...props} />
     ))}
   </Layout>
@@ -70,7 +70,7 @@ const CreditsItem: React.FunctionComponent<Credit> = ({
   thanksText = 'for the amazing',
   ...props
 }) => (
-  <Typography use='body1'>
+  <Typography use="body1">
     <a href={authorLink}>{authorName}</a>&nbsp;{thanksText}
     {props.library && props.libraryLink && (
       <>

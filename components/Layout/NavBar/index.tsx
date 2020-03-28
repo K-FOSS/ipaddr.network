@@ -15,7 +15,13 @@ interface MenuItemProps {
   currentMode?: string;
 }
 
-const MenuItem: React.FunctionComponent<MenuItemProps> = ({ url, label, as, mode, currentMode }) => (
+const MenuItem: React.FunctionComponent<MenuItemProps> = ({
+  url,
+  label,
+  as,
+  mode,
+  currentMode,
+}) => (
   <Link href={url} as={as} prefetch passHref>
     <ListItem
       activated={
@@ -39,24 +45,34 @@ export const NavBar: React.SFC<NavBarProps> = ({ currentMode, ...props }) => (
     <Drawer dismissible {...props}>
       <DrawerContent>
         <List>
-          {MenuItemList.map(ITM =>
+          {MenuItemList.map((ITM) =>
             'children' in ITM ? (
               <CollapsibleList
                 key={ITM.label}
-                handle={<SimpleListItem text={ITM.label} metaIcon='chevron_right' />}
+                handle={
+                  <SimpleListItem text={ITM.label} metaIcon="chevron_right" />
+                }
                 startOpen={
                   typeof window === 'undefined'
                     ? true
-                    : ITM.children.some(l => window.location.pathname.split('/').pop() === l.as.split('/').pop())
+                    : ITM.children.some(
+                        (l) =>
+                          window.location.pathname.split('/').pop() ===
+                          l.as.split('/').pop(),
+                      )
                 }
               >
-                {ITM.children.map(props => (
-                  <MenuItem currentMode={currentMode} key={props.label} {...props} />
+                {ITM.children.map((props) => (
+                  <MenuItem
+                    currentMode={currentMode}
+                    key={props.label}
+                    {...props}
+                  />
                 ))}
               </CollapsibleList>
             ) : (
               <MenuItem currentMode={currentMode} key={ITM.label} {...ITM} />
-            )
+            ),
           )}
         </List>
       </DrawerContent>
