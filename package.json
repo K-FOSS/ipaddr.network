@@ -19,7 +19,7 @@
   "dependencies": {
     "@hg8496/netmask": "^2.0.3",
     "@rmwc/button": "^6.0.0",
-    "@rmwc/data-table": "^4.0.6",
+    "@rmwc/data-table": "^6.0.0",
     "@rmwc/drawer": "^6.0.0",
     "@rmwc/elevation": "^5.5.1",
     "@rmwc/grid": "^5.5.1",
