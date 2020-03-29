@@ -2,7 +2,7 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'url';
 import { join } from 'path';
 import conf from './config';
-const next = require('next') as typeof import('next-server').default;
+import next from 'next';
 
 const app = next({
   conf: conf,

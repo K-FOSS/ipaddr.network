@@ -52,15 +52,6 @@ export const NavBar: React.SFC<NavBarProps> = ({ currentMode, ...props }) => (
                 handle={
                   <SimpleListItem text={ITM.label} metaIcon="chevron_right" />
                 }
-                startOpen={
-                  typeof window === 'undefined'
-                    ? true
-                    : ITM.children.some(
-                        (l) =>
-                          window.location.pathname.split('/').pop() ===
-                          l.as.split('/').pop(),
-                      )
-                }
               >
                 {ITM.children.map((props) => (
                   <MenuItem
