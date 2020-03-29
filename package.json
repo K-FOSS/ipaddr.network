@@ -31,7 +31,7 @@
     "@rmwc/typography": "^6.0.0",
     "@types/webrtc": "0.0.26",
     "@zeit/next-css": "^1.0.0",
-    "next": "^8.1.1-canary.30",
+    "next": "^9.0.0",
     "next-offline": "^4.0.0",
     "public-ip": "^4.0.0",
     "react": "^16.8.6",
