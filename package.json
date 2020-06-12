@@ -18,7 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@hg8496/netmask": "^2.0.4",
-    "@rmwc/button": "^6.0.3",
+    "@rmwc/button": "^6.1.2",
     "@rmwc/data-table": "^6.0.0",
     "@rmwc/drawer": "^6.0.14",
     "@rmwc/elevation": "^6.0.0",
