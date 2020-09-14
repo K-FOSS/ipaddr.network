@@ -22,7 +22,7 @@
     "@rmwc/data-table": "^6.0.0",
     "@rmwc/drawer": "^6.0.14",
     "@rmwc/elevation": "^6.0.0",
-    "@rmwc/grid": "^6.0.0",
+    "@rmwc/grid": "^6.1.4",
     "@rmwc/list": "^6.0.3",
     "@rmwc/provider": "^6.0.3",
     "@rmwc/select": "^6.0.0",
