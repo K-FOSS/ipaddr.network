@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: docker.pkg.github.com/k-foss/ipaddr.network/ipaddr.network-ui
           username: ${{ github.actor }}
